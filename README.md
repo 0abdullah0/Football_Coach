@@ -1,6 +1,6 @@
 # Football_Coach:
 
-Mobile application that facilitate preimer league events introducing new features for football technologies field such as:
+Mobile application that facilitate preimer league events anywhere anytime introducing new features for football technologies field such as:
 
 1- Predict Matches results  -->  (WoW amazing)..!
 2- Recommend bes players in the formation --> (O.M.G)..!
