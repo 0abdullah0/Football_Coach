@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
 var registerRouter = require('./routes/Authenticate/register');
 var loginRouter= require('./routes/Authenticate/login');
 var logoutRouter= require('./routes/Authenticate/logout');
@@ -11,7 +12,7 @@ var logoutRouter= require('./routes/Authenticate/logout');
 var app = express();
 
 
-var server = app.listen(server.listen(process.env.PORT || 3000), function() {
+var server = app.listen(8080, function() {
   console.log('Ready on port %d', server.address().port);
 });
 app.use(logger('dev'));
