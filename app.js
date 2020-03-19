@@ -12,7 +12,7 @@ var logoutRouter= require('./routes/Authenticate/logout');
 var app = express();
 
 
-var server = app.listen(8080, function() {
+var server = app.listen(process.env.PORT||8080, function() {
   console.log('Ready on port %d', server.address().port);
 });
 app.use(logger('dev'));
