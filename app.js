@@ -4,27 +4,35 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var registerRouter = require('./routes/Authenticate/register');
+var loginRouter= require('./routes/Authenticate/login');
+var logoutRouter= require('./routes/Authenticate/logout');
+
 var app = express();
 
 
-//middleware
+var server = app.listen(8080, function() {
+  console.log('Ready on port %d', server.address().port);
+});
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(function(req, res, next) { // catch 404 and forward to error handler
+
+app.use('/authenticate', registerRouter);
+app.use('/authenticate', loginRouter);
+app.use('/authenticate', logoutRouter);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
   next(createError(404));
 });
-app.use(function(err, req, res, next) { // error handler
+
+// error handler
+app.use(function(err, req, res, next) {
   res.json({ error: err })
 
 });
-
-//CALLING API
-
-var server = app.listen(8080, function() {
-    console.log('Ready on port %d', server.address().port);
-  });
 
 module.exports = app;
