@@ -2,8 +2,8 @@ const express = require('express');
 var router = express.Router();
 const { Sequelize } = require('sequelize');
 
-sequelize = new Sequelize("id10721597_footballcoach","id10721597_coachabdo","|ExmOBL8X5uq65hi", {
-    'host' : "localhost",
+sequelize = new Sequelize("byyhdcmrcoornaoxbmpo","ujyj8b7d4jqflrci","VJSLGIWMPAx479PV8wQX", {
+    'host' : "byyhdcmrcoornaoxbmpo-mysql.services.clever-cloud.com",
     'dialect' : "mysql",
     'port' : "3306",
     'logging' : false
