@@ -2,8 +2,8 @@ const express = require('express');
 var router = express.Router();
 const { Sequelize } = require('sequelize');
 
-sequelize = new Sequelize("sql2328272","sql2328272","vW9%gA5%", {
-    'host' : "sql2.freesqldatabase.com",
+sequelize = new Sequelize("id10721597_footballcoach","id10721597_coachabdo","|ExmOBL8X5uq65hi", {
+    'host' : "localhost",
     'dialect' : "mysql",
     'port' : "3306",
     'logging' : false
