@@ -25,7 +25,7 @@ class UserTable{
                 allowNull: false
               },
               token: {
-                type: Sequelize.STRING
+                type: Sequelize.TEXT
               }
           });
     }
