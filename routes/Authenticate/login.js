@@ -9,7 +9,7 @@ let saltRounds=10;
 var db=require("../../database/db");
 var userTable=require("../../database/userTable");
 
-router.get("/login",async function(req,res){
+router.post("/login",async function(req,res){
 
     var users=new userTable();
     const authenticated = await users.searchUser(req.body.email,req.body.password);
