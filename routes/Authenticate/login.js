@@ -16,7 +16,7 @@ router.get("/login",async function(req,res){
 
 
     if(authenticated=="not allowed"||authenticated=="wrong"){
-        res.sendStatus(403);
+         res.json({"token":"Forbidden"});
     } 
     else{
         const newToken=await users.updateToken(authenticated);
