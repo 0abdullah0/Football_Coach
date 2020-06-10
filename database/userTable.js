@@ -30,7 +30,7 @@ class UserTable{
               photo: {
                 type: Sequelize.STRING
               },
-			  score: {
+	      score: {
                 type: Sequelize.INTEGER            
               }
           });
