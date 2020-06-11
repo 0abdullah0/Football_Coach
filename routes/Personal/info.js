@@ -9,7 +9,8 @@ app=express();
 app.use(bodyParser);
 
 router.get('/info',async function(req, res){
-    var tkn = req.headers['token'];
+    var auth = req.headers['Authorization'];
+    var tkn = auth.split(" ")[1];
     var users=new userTable();
     const usr= await users.getUsertkn(tkn);
 
