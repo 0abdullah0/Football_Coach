@@ -10,7 +10,7 @@ app.use(bodyParser);
 
 router.get('/info',async function(req, res){
     var tkn= "";
-    if(req.headers.authorization.startswith("Bearer "))
+    if(req.headers.authorization.startsWith("Bearer "))
     {
         tkn = req.headers.authorization.substring(7, req.headers.authorization.length);
     }
