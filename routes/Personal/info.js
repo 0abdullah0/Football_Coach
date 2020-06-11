@@ -9,11 +9,8 @@ app=express();
 app.use(bodyParser);
 
 router.get('/info',async function(req, res){
-    var tkn= "";
-    if(req.headers.authorization.startsWith("Bearer "))
-    {
-        tkn = req.headers.authorization.substring(7, req.headers.authorization.length);
-    }
+    var auth = req.headers['Authorization'];
+    var tkn=auth.split(' ')[1];
     var users=new userTable();
     const usr= await users.getUsertkn(tkn);
 
