@@ -27,10 +27,10 @@ class UserTable{
               token: {
                 type: Sequelize.TEXT
               },
-              photo: {
+			        photo: {
                 type: Sequelize.STRING
               },
-	      score: {
+			        score: {
                 type: Sequelize.INTEGER            
               }
           });
@@ -99,6 +99,28 @@ class UserTable{
       )
       return null;
       }
+
+      async getUsertkn(token){
+        let data= await db.query ( `SELECT * FROM user WHERE token='${token}'`,{
+          type: Sequelize.QueryTypes.SELECT
+        }
+      )
+        if(data.length<=0)
+         {
+           return "Not Authorsized";
+        }
+        else{
+          return data[0];
+        }
+      }
+
+      async photoUsertkn(token,url){
+        let data= await db.query ( `UPDATE user SET photo='${url}' WHERE token='${token}'`,{
+          type: Sequelize.QueryTypes.UPDATE
+        }
+      )
+      }
+
 };
 
 
