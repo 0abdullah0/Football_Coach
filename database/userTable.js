@@ -25,7 +25,13 @@ class UserTable{
                 allowNull: false
               },
               token: {
+                type: Sequelize.TEXT
+              },
+              photo: {
                 type: Sequelize.STRING
+              },
+	      score: {
+                type: Sequelize.INTEGER            
               }
           });
     }

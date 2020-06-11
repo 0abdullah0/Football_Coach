@@ -35,7 +35,7 @@ router.post('/signup',async function(req, res) {
           res.json({"token":user["token"]});
         }
     else{
-            res.sendStatus(403);
+           res.json({"token":"Forbidden"});
         }
 });
 

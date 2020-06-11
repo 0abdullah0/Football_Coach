@@ -9,14 +9,14 @@ let saltRounds=10;
 var db=require("../../database/db");
 var userTable=require("../../database/userTable");
 
-router.get("/login",async function(req,res){
+router.post("/login",async function(req,res){
 
     var users=new userTable();
     const authenticated = await users.searchUser(req.body.email,req.body.password);
 
 
     if(authenticated=="not allowed"||authenticated=="wrong"){
-        res.sendStatus(403);
+         res.json({"token":"Forbidden"});
     } 
     else{
         const newToken=await users.updateToken(authenticated);
