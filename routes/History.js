@@ -69,4 +69,30 @@ router.get('/topHome', function(req, res) {
 
    })
 
+   router.get('/show-history', function(req, res) {
+    team1 = req.body.team1;
+    team2 = req.body.team2;
+
+    myconnect.query("SELECT SEASON, `Date`, LEFT(MatchDate,11) AS `Date`, HomeTeam, AwayTeam, CONCAT(FTHG, '-', FTAG) AS Result FROM `History` where HomeTeam ="+   "'" + team1 +  "'" + "AND AwayTeam = " + "'"  + team2 + "'"+ "UNION SELECT SEASON, `Date`, LEFT(MatchDate,11) AS `Date`, HomeTeam, AwayTeam, CONCAT(FTHG, '-', FTAG) AS Result FROM `History` where HomeTeam = " + "'"  + team2 + "'" +  "AND AwayTeam =" + "'"  + team1 + "'" ,function(err,rows,filds){
+      console.log(team1);
+      console.log(team2);
+
+       if(!err){
+        
+         if (rows.length > 0) {
+          
+           return res.send({  res: rows});
+       } else {
+           return res.send({ error: true, dataL:"No history with this two teams" });
+               }
+       
+      }
+     
+     })
+    
+   });
+   
+   //SELECT * FROM `History` where HomeTeam = 'Arsenal' OR AwayTeam = 'Arsenal' UNION SELECT * FROM `History` where HomeTeam = 'Liverpool' OR AwayTeam = 'Liverpool' ORDER BY Date
+
+
 module.exports = router;
