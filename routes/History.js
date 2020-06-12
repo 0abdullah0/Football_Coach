@@ -73,7 +73,7 @@ router.get('/topHome', function(req, res) {
     team1 = req.body.team1;
     team2 = req.body.team2;
 
-    myconnect.query("SELECT SEASON, `Date`, LEFT(MatchDate,11) AS `Date`, HomeTeam, AwayTeam, CONCAT(FTHG, '-', FTAG) AS Result FROM `History` where HomeTeam ="+   "'" + team1 +  "'" + "AND AwayTeam = " + "'"  + team2 + "'"+ "UNION SELECT SEASON, `Date`, LEFT(MatchDate,11) AS `Date`, HomeTeam, AwayTeam, CONCAT(FTHG, '-', FTAG) AS Result FROM `History` where HomeTeam = " + "'"  + team2 + "'" +  "AND AwayTeam =" + "'"  + team1 + "'" ,function(err,rows,filds){
+    myconnect.query("SELECT SEASON, `Date`, LEFT(MatchDate,11) AS `Date`, HomeTeam, AwayTeam, CONCAT(FTHG, '-', FTAG) AS Result FROM `History` where HomeTeam ="+   "'" + team1 +  "'" + "AND AwayTeam = " + "'"  + team2 + "'"+ "UNION SELECT SEASON, `Date`, LEFT(MatchDate,11) AS `Date`, HomeTeam, AwayTeam, CONCAT(FTHG, '-', FTAG) AS Result FROM `History` where HomeTeam = " + "'"  + team2 + "'" +  "AND AwayTeam =" + "'"  + team1 + "' ORDER BY Season DESC LIMIT 7" ,function(err,rows,filds){
       console.log(team1);
       console.log(team2);
 
