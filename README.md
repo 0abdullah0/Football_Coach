@@ -1,4 +1,5 @@
 # Football_Coach:
+[![Build Status](https://img.shields.io/travis/dingo/api/master.svg?style=flat-square)]
 
 ## Mobile application that facilitate preimer league events anywhere anytime introducing new features for football technologies field such as:
 
