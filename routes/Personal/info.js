@@ -24,6 +24,8 @@ router.get('/info',async function(req, res){
            "email":usr["email"],
            "photo":usr["photo"],
            "score":usr["score"],
+           "correct":usr["correct"],
+           "wrong":usr["wrong"]
            }
     );
    }
