@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var myconnect = require('../database/db2')
 
-
+//top 10 teams
 router.get('/topHome', function(req, res) {
     console.log('Time:', Date.now()  )
     myconnect.query('SELECT HomeTeam, COUNT(*) AS wins FROM `History` WHERE FTHG > FTAG GROUP BY HomeTeam  ORDER BY COUNT(*) DESC LIMIT 10;;',function(err,rows,filds){
@@ -69,7 +69,7 @@ router.get('/topHome', function(req, res) {
 
    })
 
-   router.get('/show-history', function(req, res) {
+   router.post('/show-history', function(req, res) {
     team1 = req.body.team1;
     team2 = req.body.team2;
 
@@ -92,7 +92,5 @@ router.get('/topHome', function(req, res) {
     
    });
    
-   //SELECT * FROM `History` where HomeTeam = 'Arsenal' OR AwayTeam = 'Arsenal' UNION SELECT * FROM `History` where HomeTeam = 'Liverpool' OR AwayTeam = 'Liverpool' ORDER BY Date
-
 
 module.exports = router;
