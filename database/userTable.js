@@ -32,6 +32,12 @@ class UserTable{
               },
 			        score: {
                 type: Sequelize.INTEGER            
+              },
+			        correct: {
+                type: Sequelize.INTEGER            
+              },
+			        wrong: {
+                type: Sequelize.INTEGER            
               }
           });
     }
