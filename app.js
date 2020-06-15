@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser')
 var historyRouter = require('./routes/History')
-var scoreRouter = require('./routes/score')
+var scoreRouter = require('./routes/score/score')
 
 var registerRouter = require('./routes/Authenticate/register');
 var loginRouter= require('./routes/Authenticate/login');
@@ -42,7 +42,7 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
-  res.json({ error: err })
+  res.json({ error: "err" })
 
 });
 
