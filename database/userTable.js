@@ -126,6 +126,20 @@ class UserTable{
         }
       )
       }
+	  
+	  async getUserRanks(){
+        let data= await db.query ( `SELECT * FROM user ORDER BY score DESC`,{
+          type: Sequelize.QueryTypes.SELECT
+        }
+      )
+        if(data.length<=0)
+         {
+           return "Not Authorsized";
+        }
+        else{
+          return data;
+        }
+      }
 
 };
 
