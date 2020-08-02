@@ -32,7 +32,7 @@ router.get('/scores',async function(req, res){
                     }
         ranked.push(jsonObj);
     }
-    res.json(ranked);
+    res.json({"Users":ranked});
    }
 
 });
